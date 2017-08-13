@@ -1,0 +1,24 @@
+package AddingItemToCart;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.Test;
+
+public class AddItem 
+{
+	@Test
+public void addtocart() throws Exception{
+	WebDriver driver = new FirefoxDriver();
+	driver.get("http://www.amazon.com");
+	driver.manage().window().maximize();
+	Thread.sleep(5000);
+	driver.findElement(By.xpath(".//*[@id='searchDropdownBox']")).submit();
+	new Select(driver.findElement(By.id(".//*[@id='searchDropdownBox']/option[12]"))).selectByVisibleText("Book");
+	driver.findElement(By.id("searchDropdownBox")).sendKeys("selenium");
+	driver.findElement(By.xpath(".//*[@id='nav-search']/form/div[2]/div/input")).click();
+	
+	
+}
+}
